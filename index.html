@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>H2GB!!!~</title>
+  </head>
+  <body>
+    <script type="text/x-handlebars" data-template-name="test">
+      Hello!
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="binaries">
+      Binaries:
+      <ul>
+        {{#each itemController="binary"}}
+          <li>{{#link-to "binary" id}}{{name}}{{/link-to}}</li>
+        {{/each}}
+      </ul>
+
+      <hr>
+      <button id="test" {{action "hi"}}>Test</button>
+      </hr>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="binary">
+      Welcome to {{name}}
+
+      <button {{action hi}}>{{value}}</button>
+
+      <ul>
+        <li>{{this}}</li>
+        <li>{{blocks}}</li>
+        <li>{{strings}}</li>
+        <li>{{functions}}</li>
+        <li>{{#link-to 'binary.disassemble'}}Disassemble{{/link-to}}
+      </ul>
+
+      <hr />
+      {{outlet}}
+      <hr />
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="binary/disassemble">
+      You probably want to disassemble this binary...
+    </script>
+
+    <!-- ... Ember.js and other javascript dependencies ... -->
+    <script src="js/libs/jquery-1.10.2.min.js"></script>
+    <script src="js/libs/handlebars-1.0.0.js"></script>
+    <script src="js/libs/ember.js"></script>
+    <script src="js/libs/ember-data.js"></script>
+    <script src="js/libs/localstorage_adapter.js"></script>
+    <script src="js/application.js"></script>
+    <script src="js/router.js"></script>
+
+    <script src="js/models/address.js"></script>
+    <script src="js/models/appfunction.js"></script>
+    <script src="js/models/appstring.js"></script>
+    <script src="js/models/binary.js"></script>
+    <script src="js/models/block.js"></script>
+    <script src="js/models/instruction.js"></script>
+    <script src="js/models/xref.js"></script>
+
+    <script src="js/controllers/binary_controller.js"></script>
+
+  </body>
+</html>
